@@ -1,0 +1,23 @@
+{
+  "name": "apibasic",
+  "version": "1.0.0",
+  "description": "basic api project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/triden005/apibasic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/triden005/apibasic/issues"
+  },
+  "homepage": "https://github.com/triden005/apibasic#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
