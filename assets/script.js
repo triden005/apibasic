@@ -29,6 +29,6 @@ function getmovie(search){
             </div>`
                     });
         
-        $(".row").append(output);
+        $(".row").html(output);
         });
 }
