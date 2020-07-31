@@ -11,7 +11,7 @@ $(document).ready(() =>{
 })
 
 function getmovie(search){
-    $.get("http://www.omdbapi.com/?s="+search+"&apikey=57ec39dd",(data,status)=>{
+    $.get("https://www.omdbapi.com/?s="+search+"&apikey=57ec39dd",(data,status)=>{
         //$("#ppw").append(data)
         var output="";
 
