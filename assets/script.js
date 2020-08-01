@@ -4,13 +4,13 @@ $(document).ready(() =>{
     $(".searchbtn").on("click", function(e){
         console.log("submitting")
         var search= $("#search").val();
-        getmovie(search);
+        getmovies(search);
         console.log(search);
         e.preventDefault();
     })
 })
 
-function getmovie(search){
+function getmovies(search){
     $.get("https://www.omdbapi.com/?s="+search+"&apikey=57ec39dd",(data,status)=>{
         //$("#ppw").append(data)
         var output="";
@@ -21,7 +21,7 @@ function getmovie(search){
                     <div class="center well">
                         <img src="${element.Poster}">
                         <p  align="center"> ${element.Title}<br>
-                        <a class="btn btn-primary" href="#">Details</a>
+                        <a onClick="movieselected('${element.imdbID}')" class="btn btn-primary" href="#">Details</a>
                         </p>
                         
                     </div>
@@ -30,5 +30,47 @@ function getmovie(search){
                     });
         
         $(".row").html(output);
+        console.log(status);
         });
 }
+function movieselected(id){
+    console.log(id);
+    sessionStorage.setItem("movieid",id);
+    window.location ="movie.html";
+    return false;
+}
+
+function getmovie(){
+    var movieid=sessionStorage.getItem('movieid');
+    $.get("https://www.omdbapi.com/?i="+movieid+"&apikey=57ec39dd&plot=full",(data,status)=>{
+        var element=data;
+        var output=`
+                <div class="col-md-5">
+                <div class="thumbnail">
+                <img src="${element.Poster}">
+                </div>
+                </div>
+                <div class="col-md-7">
+                <div class="thumbnail">
+                <ul id="no-bullets" >
+                    <li><h2 align="center"><b>${element.Title}</h2></b></li>
+                    <li>Released:${element.Released}</li>
+                    <li><b>imdbRating/votes:${element.imdbRating}/${element.imdbVotes}</b></li>
+                    <li><b>Director</b>:${element.Director}</li>
+                    <li><b>Plot</b>:${element.Plot}</li>
+                    <li><b>Language</b>:${element.Language}</li>
+                    <li><b>Awards</b>:${element.Awards}</li>
+                    <li>
+                    <p align="center">
+                    <a href="index.html" class="btn btn-primary">Back</a></p>
+                    </li>
+                </ul>
+                </div >`;
+        $(".row").html(output);
+        console.log(data);
+    })
+}
+$(document).ready(() =>{
+    console.log("document movie ready");
+    getmovie();
+})

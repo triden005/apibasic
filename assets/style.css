@@ -1,21 +1,23 @@
-.bg-light{
-    background-color: cornsilk;
-}
 body{
     background-color: black;
 }
-.thumbnail img{
+.col-md-4 img{
     width: 80%;
     height: 300px;
     margin-left: auto;
     margin-right:auto;
     display: block;
+    
 }
-
+.well{
+    border: 0px solid red;
+    
+}
 .thumbnail{
-    height:400px;
-    background-color: black;
     color :white;
+    background: #222222;
+    border:2px solid transparent;
+    
 }
 
 form{
@@ -26,5 +28,18 @@ form{
  }
 .well{
     background: black;
-    
+}
+#no-bullets {
+    list-style-type: none; /* Remove bullets */
+
+  }
+.col-md-5>.thumbnail{
+    min-height: 500px;
+    padding-top: 25px;
+}
+.col-md-7>.thumbnail{
+    min-height: 500px;
+}
+li{
+    line-height: 1.8;
 }
