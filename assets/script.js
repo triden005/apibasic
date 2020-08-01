@@ -42,6 +42,9 @@ function movieselected(id){
 
 function getmovie(){
     var movieid=sessionStorage.getItem('movieid');
+    
+    console.log(movieid);
+    if(movieid!==null)
     $.get("https://www.omdbapi.com/?i="+movieid+"&apikey=57ec39dd&plot=full",(data,status)=>{
         var element=data;
         var output=`
@@ -67,7 +70,7 @@ function getmovie(){
                 </ul>
                 </div >`;
         $(".row").html(output);
-        console.log(data);
+        
     })
 }
 $(document).ready(() =>{
