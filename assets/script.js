@@ -65,7 +65,7 @@ function getmovie(){
                     <li><b>Awards</b>:${element.Awards}</li>
                     <li>
                     <p align="center">
-                    <a href="https://www.imdb.com/title/${element.imdbID}" class="btn btn-primary"  > imdb </a></p>
+                    <a href="https://www.imdb.com/title/${element.imdbID}" class="btn btn-primary" target="_blank" > imdb </a></p>
                     </li>
                 </ul>
                 </div >`;
